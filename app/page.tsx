@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="flex">
-      Hello
+      <div>hi</div>
     </main>
-  );
+  )
 }
