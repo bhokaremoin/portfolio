@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const WorkExperience: React.FC = () => {
     return <div>WorkExperience</div>
