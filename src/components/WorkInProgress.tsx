@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
-// import { useGlobalContext } from '@/Context/global'
+import { useGlobalContext } from '@/context/global'
 import React, { useState, useEffect } from 'react'
-// import styles from './style.module.css'
+import styles from './style.module.css'
 
 const GO_LIVE_DATE = new Date('2024-08-31T18:00:00')
 
@@ -28,10 +28,7 @@ function calculateTimeLeft() {
 }
 
 const WorkInProgress: React.FC = () => {
-    // const { resumeURL, linkedinURL, emailId } = useGlobalContext()
-    const resumeURL = '';
-    const linkedinURL = '';
-    const emailId = 'bhokaremoin@gmail.com';
+    const { resumeURL, linkedinURL, emailId } = useGlobalContext()
     const [timeLeft, setTimeLeft] = useState({
         days: '--',
         hours: '--',
@@ -67,8 +64,8 @@ const WorkInProgress: React.FC = () => {
             >
                 <span>COMMING SOON</span>
                 <span className={'text-8xl'}>New Website is on a Roll!</span>
-                {isClient && (
-                    <div className={``}>
+                {(isClient && timeLeft && timeLeft.days !== '--')&& (
+                    <div className={`${styles.container}`}>
                         <div className="flex">
                             {Object.entries(timeLeft).map(
                                 ([key, value], index) => (
