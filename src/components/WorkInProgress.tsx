@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useGlobalContext } from '@/context/global'
 import React, { useState, useEffect } from 'react'
 import styles from './style.module.css'
+import {Button} from "@nextui-org/react";
 
 const GO_LIVE_DATE = new Date('2024-08-31T18:00:00')
 
@@ -47,11 +48,11 @@ const WorkInProgress: React.FC = () => {
 
     return (
         <div className={`w-screen h-screen p-4`}>
-            <div className={'flex justify-between w-full my-2'}>
+            <div className={'flex justify-between w-full my-4'}>
                 <div>
                     <span>Moin Bhokare</span>
                 </div>
-                <div className={'flex gap-2 flex-row'}>
+                <div className={'flex gap-4 flex-row'}>
                     <Link href={resumeURL}>Resume</Link>
                     <Link href={linkedinURL}>Linkedin</Link>
                     <Link href={`mailto:${emailId}`}>{emailId}</Link>
@@ -59,19 +60,19 @@ const WorkInProgress: React.FC = () => {
             </div>
             <div
                 className={
-                    'flex flex-col justify-center items-center my-2 w-full mt-4 gap-4'
+                    'flex flex-col justify-center items-center mt-20 gap-10'
                 }
             >
-                <span>COMMING SOON</span>
-                <span className={'text-8xl'}>New Website is on a Roll!</span>
+                <span className={'font-mono text-slate-400'}>COMMING SOON</span>
+                <span className={'text-8xl '}>New Website is on a Roll!</span>
                 {(isClient && timeLeft && timeLeft.days !== '--')&& (
-                    <div className={`${styles.container}`}>
+                    <div className={`${styles.container} mt-10`}>
                         <div className="flex">
                             {Object.entries(timeLeft).map(
                                 ([key, value], index) => (
-                                    <div key={key} className="flex flex-row">
+                                    <div key={key} className="flex flex-row font-mono">
                                         <div className="flex flex-col items-center">
-                                            <span className="text-5xl font-bold text-orange-bold">
+                                            <span className="text-8xl font-bold text-orange-bold">
                                                 {value
                                                     .toString()
                                                     .padStart(2, '0')}
@@ -81,7 +82,7 @@ const WorkInProgress: React.FC = () => {
                                             </span>
                                         </div>
                                         {index < 3 && (
-                                            <span className="text-5xl font-bold text-orange-500 mx-2">
+                                            <span className="text-5xl font-bold text-orange-500 mx-2 my-4">
                                                 :
                                             </span>
                                         )}
