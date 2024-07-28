@@ -1,0 +1,32 @@
+replace 0-0-0-0 with public_ip address
+ssh -i "pem_file" ubuntu@ec2-0-0-0-0.compute-1.amazonaws.com
+
+# pm2 commands
+npm install -g pm2
+pm2 start npm --name "next-app" -- start
+sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v22.5.1/bin /home/ubuntu/.nvm/versions/node/v22.5.1/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
+pm2 save
+
+#nginx
+sudo apt update
+sudo apt install nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo nano /etc/nginx/sites-available/default
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+# cert-bot for ssl certificate
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d moincodes.com -d www.moincodes.com
+sudo systemctl restart nginx
+
+#
+npm i
+npm run build
+
+#incase of redeploy
+pm2 stop next-app
+pm2 delete next-app
+pm2 start npm --name "next-app" -- start
