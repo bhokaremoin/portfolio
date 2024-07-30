@@ -13,7 +13,7 @@ export const GlobalContextProvider: React.FC<{ children: ReactNode }> = ({
                                                                              children,
                                                                          }) => {
     const resumeURL =
-        'https://drive.google.com/file/d/1tF3YjHlX27dg3Lar2do4oh7bSCV8bncu/view'
+        'https://drive.google.com/file/d/1Z2ky6yK91swzkeR7Mo5mE0TJB2I8DCm6/view?usp=sharing'
     const emailId = 'bhokaremoin@gmail.com'
     const linkedinURL = 'https://www.linkedin.com/in/moinbhokare/'
     return (
