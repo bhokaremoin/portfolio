@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './style.module.css'
 import {Button} from "@nextui-org/react";
 
-const GO_LIVE_DATE = new Date('2024-08-31T18:00:00')
+const GO_LIVE_DATE = new Date('2024-10-31T18:00:00')
 
 function calculateTimeLeft() {
     const difference = +GO_LIVE_DATE - +new Date()
